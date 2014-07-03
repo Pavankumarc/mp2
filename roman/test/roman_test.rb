@@ -1,4 +1,4 @@
-require_relative '../lib/roman'
+require  '../lib/roman'
 require 'test/unit'
 
 
