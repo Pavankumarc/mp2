@@ -18,5 +18,6 @@ assert_equal 'V',Roman.convert(5)
 assert_equal 'VI',Roman.convert(6)
 assert_equal 'VII',Roman.convert(7)
 assert_equal 'IX',Roman.convert(9)
+assert_equal 'X',Roman.convert(10)
 end
 end  

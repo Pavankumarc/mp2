@@ -8,9 +8,18 @@ elsif number==3
 'III'
 elsif number==4
 'IV'
-else
+elsif number==5
 'V'
-
+elsif number==6
+'VI'
+elsif number==7
+'VII'
+elsif number==8
+'VIII'
+elsif number==9
+'IX'
+else
+'X'
 end
 end
 end
