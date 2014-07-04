@@ -27,7 +27,7 @@ return s
 end
 end
 
-def comp(n)
+def self.comp(n)
 if n==0
 ""
 elsif n == 1
