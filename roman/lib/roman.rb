@@ -55,7 +55,7 @@ elsif n == 20
 elsif n == 30
 "XXX"
 elsif n == 40
-"XL"
+"XXXX"
 elsif n ==50
 "L"
 elsif n == 60
@@ -65,7 +65,7 @@ elsif n == 70
 elsif n ==80
 "LXXX"
 elsif n == 90
-"XC"
+"LXXXX"
 elsif n == 100
 "C"
 elsif n == 200
