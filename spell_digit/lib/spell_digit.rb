@@ -22,10 +22,30 @@ p=n%100
 s2=comp(p)
 n=n-p
 n=n/100
-s3="and"
-s4="hundred"
+s3=" and "
+s4=" hundred"
 s5=comp(n)
 return s5+s4+s3+s2+s1
+
+elsif n>999 and n<10000
+a=n%10
+s1=comp(a)
+n=n-a
+b=n%100
+s2=comp(b)
+n=n-a
+n=n/100
+s=" and "
+s3=" hundred"
+c=n%10
+s4=comp(c)
+n=n-c
+n=n/10
+s5=" thousand "
+s6=comp(n)
+return s6+s5+s4+s3+s+s2+s1
+
+
 
 end
 end
