@@ -10,7 +10,7 @@ class TestSpell_digit < Test::Unit::TestCase
 
 
   def test_one
-   assert_equal "two",Spell_digit.convert(2)
-   assert_equal "ten",Spell_digit.convert(10)
+   assert_equal "two hundred and thirty eight",Spell_digit.convert(238)
+   assert_equal "nine hundred and ninty nine",Spell_digit.convert(999)
   end
 end
