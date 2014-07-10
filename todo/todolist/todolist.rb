@@ -4,20 +4,24 @@ attr_accessor :filename,:todo,:pending,:completed
 @pending=[]
 @completed=[]
 
-
 def self.initialize(filename)
 @filename=filename
 end
 
+def self.empty
+@todo.clear
+@pending.clear
+@completed.clear
+return "clear"
+end
 
 def self.add(item)
 @pending << item
 return @pending.size
 end
 
-def self.list
-@todo = @pending + @completed
-return @todo.size
+def self.pending
+return @pending.size
 end
 
 def self.complete(linenumber)
@@ -26,13 +30,15 @@ def self.complete(linenumber)
 return @completed.size
 end
 
-def self.pending
-return @pending.size
-end
-
-def completed
+def self.completed
 return @completed.size
 end
+
+def self.list
+@todo = @pending + @completed
+return @todo.size
+end
+
 
 def self.delete(linenumber)
 @completed.delete_at(linenumber - 1)
@@ -46,10 +52,7 @@ def self.modify(linenumber,item)
 return @pending.size
 end
 
-def self.empty
-a = @todo.delete
-return a.size
-end
+
 
 def self.show_pending(linenumber)
 return @pending[linenumber-1]
