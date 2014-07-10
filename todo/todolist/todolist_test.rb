@@ -3,8 +3,7 @@ require 'test/unit'
 
 
 class Testcase < Test::Unit::TestCase
- 
- 
+  
    def test_add
    assert_equal 1,Todolist.add("hello")
    assert_equal 2,Todolist.add("hey")
@@ -43,7 +42,9 @@ def test_show_completed
 assert_equal "hi",Todolist.show_completed(1)
 end
 
-   
+   def test_empty
+   assert_equal 0,Todolist.empty
+   end
 
 end
 
