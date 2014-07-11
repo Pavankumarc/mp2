@@ -1,3 +1,4 @@
+
 class Todolist
 
 
@@ -65,6 +66,22 @@ end
 def show_completed(linenumber)
 return @completed[linenumber-1]
 end
+
+
+
+def load1
+
+File.open("pavan.txt") do |file|
+    file.each do |line|
+     if line.match('pending')
+     @pending << line
+     else
+     @completed << line
+      end
+    end
+  end
+return @completed
+
+
 end
-
-
+end

@@ -6,7 +6,7 @@ require 'test/unit'
 class Testcase < Test::Unit::TestCase
 
 def setup
-@t=Todolist.new("a.txt")
+@t=Todolist.new("pavan.txt")
 end
 
 def teardown
@@ -155,8 +155,10 @@ def test_show
 @t.complete(1)
 @t.complete(3)
 assert_equal "hi",@t.show_completed(1)
-
 end
 
+def test_load1
+@t.empty
+assert_equal 0,@t.load1.size
 end
-
+end
