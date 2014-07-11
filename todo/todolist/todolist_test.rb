@@ -12,13 +12,13 @@ assert_equal 0,Todolist.list
 end
 
   
-def test_first_add
+def test_add1
 assert_equal 1,Todolist.add("hello")
 assert_equal 2,Todolist.add("hey")
 assert_equal 2,Todolist.pending
 end
 
-def test_second_add
+def test_add2
 assert_equal 3,Todolist.add("hi")
 assert_equal 4,Todolist.add("hi")
 assert_equal 5,Todolist.add("hi")
@@ -26,20 +26,21 @@ assert_equal 5,Todolist.pending
 end
 
 
-def test_complete1
+def test_complete
+assert_equal 5,Todolist.pending
 assert_equal 1,Todolist.complete(1)
 assert_equal 2,Todolist.complete(2)
 assert_equal 3,Todolist.complete(3)
-assert_equal 2,Todolist.pending
+assert_equal 2,Todolist.pending                     #test successful pending = 2
+end
+
+
+
+def test_p1
+assert_equal 2,Todolist.pending                  #test unsuccessfull expected 2 but was 0 
 end
 
 =begin
-
-def test_pending
-assert_equal 2,Todolist.pending
-end
-
-
 def test_delete
 assert_equal 2,Todolist.delete(1)
 assert_equal 2,Todolist.completed
