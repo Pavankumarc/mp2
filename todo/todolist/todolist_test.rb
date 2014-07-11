@@ -16,6 +16,7 @@ def test_add1
 assert_equal 1,Todolist.add("hello")
 assert_equal 2,Todolist.add("hey")
 assert_equal 2,Todolist.pending
+assert_equal "hey",Todolist.show_pending(2)
 end
 
 def test_add2
@@ -26,44 +27,46 @@ assert_equal 5,Todolist.pending
 end
 
 
-def test_complete
+def test_add3
 assert_equal 5,Todolist.pending
 assert_equal 1,Todolist.complete(1)
 assert_equal 2,Todolist.complete(2)
 assert_equal 3,Todolist.complete(3)
-assert_equal 2,Todolist.pending                     #test successful pending = 2
+assert_equal "hello",Todolist.show_completed(1)
+assert_equal 2,Todolist.pending
+end
+
+ 
+
+def test_add4
+puts Todolist.pending
+assert_equal 2,Todolist.pending                
 end
 
 
-
-def test_p1
-assert_equal 2,Todolist.pending                  #test unsuccessfull expected 2 but was 0 
-end
-
-=begin
-def test_delete
+def test_add5
 assert_equal 2,Todolist.delete(1)
 assert_equal 2,Todolist.completed
 end
 
 
-def test_list
+def test_add6
 assert_equal 4,Todolist.list
 end
 
 
-def test_modify
+def test_add7
 assert_equal 2,Todolist.modify(2,"bye")
 end
 
-def test_show_pending
+def test_add8
 assert_equal "bye",Todolist.show_pending(2)
 end
 
-def test_show_completed
+def test_add9
 assert_equal "hi",Todolist.show_completed(1)
 end
 
-=end
+
 
 end

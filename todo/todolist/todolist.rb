@@ -20,15 +20,14 @@ def self.add(item)
 return @pending.size
 end
 
+def self.pending
+return @pending.size
+end
 
 def self.complete(linenumber)
 @completed << @pending[linenumber-1]
 @pending.delete_at(linenumber - 1)
 return @completed.size
-end
-
-def self.pending
-return @pending.size
 end
 
 def self.completed
