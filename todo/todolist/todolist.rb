@@ -1,18 +1,17 @@
-
 class Todolist
-
+attr_accessor :filename,:todo,:completed,:pending
 
 #initialize method
 def initialize(filename)
 @filename=filename
-end
-
-#empty method
-def empty
 @todo=[]
 @pending=[]
 @completed=[]
+end
 
+#pending method
+def pending
+return @pending
 end
 
 #add method
@@ -21,14 +20,18 @@ def add(item)
 return @pending
 end
 
-#pending method
-def pending
-return @pending
+#empty method
+def empty
+@todo.clear
+@pending.clear
+@completed.clear
 end
+
 
 #complete method
 def complete(linenumber)
 @completed << @pending[linenumber-1]
+
 @pending.delete_at(linenumber - 1)
 return @completed
 end
@@ -52,7 +55,7 @@ end
 
 #modify method
 def modify(linenumber,item)
-@pending[linenumber-1].replace(item)
+@pending[linenumber-1]=item
 return @pending
 end
 
@@ -67,21 +70,58 @@ def show_completed(linenumber)
 return @completed[linenumber-1]
 end
 
-
-
-def load1
-
-File.open("pavan.txt") do |file|
-    file.each do |line|
-     if line.match('pending')
-     @pending << line
-     else
-     @completed << line
-      end
-    end
-  end
-return @completed
-
-
+#save
+def save
+f = File.open(@filename, "w")
+str =""
+str = @todo
+f.write(str)
+f.close
+return str
 end
+
+#save to file
+def save_to_file(filename)
+f = File.open(filename,"w")
+str = ""
+str = @todo
+f.puts(str)
+f.close
+end
+
+#to load a file
+def load1
+f = File.read(@filename)
+f.each_line do |line|
+if line.match('#undone')
+@pending << line
+else
+@completed << line
+end
+end
+return @pending
+end
+
+
+def complete_it(linenumber)
+@completed << @pending[linenumber - 1]
+@completed.each do |s|
+s.gsub!(/#undone/,"#done")
+end
+@pending.delete_at(linenumber-1)
+end
+
+#load from file
+def load_from_file(filename)
+f= File.open(filename,"r+")   
+f.each_line do |line|
+if line.match('#undone')
+@pending << line
+else
+@completed << line
+end
+end
+return @pending
+end
+
 end
