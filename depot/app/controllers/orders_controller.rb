@@ -9,7 +9,9 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @order = Order.all
+    #@line_item= current_user.line_items.all
+  
   end
 
   # GET /orders/1
