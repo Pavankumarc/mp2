@@ -17,7 +17,7 @@ Depot::Application.routes.draw do
   #get 'sessions/destroy'
 
   resources :users
-
+  get 'history/index'
   
   get 'store/index'
   resources :products do

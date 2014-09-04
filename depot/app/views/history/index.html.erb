@@ -1,0 +1,22 @@
+<style>
+table,th,td
+{
+border:1px solid black;
+}
+</style>
+
+<table bgcolor="#9c9">
+	<tr>
+	<th>TITLE</th>
+	<th>PRICE</th>
+	<th>CREATED_AT</th>
+</tr>
+
+<% @history.each do |m| %>
+<tr>
+<td><%=m.product.title %></td>
+<td><%= m.product.price %></td>
+<td><%= m.product.created_at %></td>
+<% end %>
+</tr><br>
+</table>

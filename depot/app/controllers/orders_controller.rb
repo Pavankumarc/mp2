@@ -9,6 +9,9 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
+    user_id = current_user.id
+    puts user_id
+    puts aaaaaaaaaaaaaaaa
     @order = Order.all
     #@line_item= current_user.line_items.all
   
@@ -39,6 +42,7 @@ class OrdersController < ApplicationController
     @order.add_line_items_from_cart(@cart)
     respond_to do |format|
       if @order.save
+        #@order.user_id = current_user.id
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         OrderNotifier.received(@order).deliver
