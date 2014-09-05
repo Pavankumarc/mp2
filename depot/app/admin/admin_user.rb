@@ -1,5 +1,9 @@
 ActiveAdmin.register AdminUser do
+  config.filters = false
   permit_params :email, :password, :password_confirmation
+  config.clear_action_items!
+  actions :all, :except => [:destroy, :edit]
+  config.batch_actions = false
 
   index do
     selectable_column
@@ -11,10 +15,6 @@ ActiveAdmin.register AdminUser do
     actions
   end
 
-  filter :email
-  filter :current_sign_in_at
-  filter :sign_in_count
-  filter :created_at
 
   form do |f|
     f.inputs "Admin Details" do

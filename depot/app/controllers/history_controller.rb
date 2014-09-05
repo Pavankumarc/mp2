@@ -4,7 +4,7 @@ class HistoryController < ApplicationController
     before_action :set_cart, only: [:create]
 	 def index
      
-	 	 @history = LineItem.where(user_id: current_user.id)
+	 	 @history =  current_user.line_items.where.not(:order_id =>"NULL")
 	 
 	  end
 end

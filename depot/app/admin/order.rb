@@ -1,5 +1,29 @@
 ActiveAdmin.register Order do
+  actions :all, :except => :edit
+  config.batch_actions = false
+index do
+    selectable_column
+    id_column
+    
+    column :name
+    column :address
+    column :pay_type
+    column :created_at
+    actions
+  end
+  filter :name
+  filter :pay_type
 
+  form do |f|
+    f.inputs "Admin Details" do
+      
+      f.input :name
+      f.input :address
+      f.input :pay_type
+      f.input :created_at
+    end
+    f.actions
+  end
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

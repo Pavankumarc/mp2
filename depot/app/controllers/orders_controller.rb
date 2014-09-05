@@ -9,10 +9,10 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    user_id = current_user.id
-    puts user_id
-    puts aaaaaaaaaaaaaaaa
-    @order = Order.all
+    #user_id = current_user.id
+    #puts user_id
+    #puts aaaaaaaaaaaaaaaa
+    #@order = Order.all
     #@line_item= current_user.line_items.all
   
   end
