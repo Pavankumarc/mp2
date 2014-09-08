@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 20140904130848) do
   create_table "products", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "image_url"
     t.decimal  "price",              precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -101,8 +100,6 @@ ActiveRecord::Schema.define(version: 20140904130848) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "password"
-    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

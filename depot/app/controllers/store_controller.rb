@@ -10,4 +10,7 @@ class StoreController < ApplicationController
 		@products = Product.order(:title)
 	end
   end
+
+  
+  
 end

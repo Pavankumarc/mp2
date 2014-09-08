@@ -11,47 +11,65 @@ ActiveAdmin.register_page "Dashboard" do
     #end
 
 
+# # strong section "Recent Orders" do
+# #     table_for Order.order("created_at desc").limit(4) do
+# #         column :id 
+# #         column :name do |name|
+# #           link_to name.name, admin_order_path(name), :onclick=>"window.open(this.href,'view order info','scrollbars=yes,height=600, width=600');return false;" 
+# #         end
+# #         column :address
+# #         column :email
+# #         column :pay_type
 
-section "Products Available" do
-    table_for Product.order("created_at desc") do
-      column :title
+ 
+      
+#     end
+# end
+
+strong section "Recent Orders" do
+  table_for LineItem.order("created_at desc") do
+    column :order
+    column :quantity
+    column :product
+  end
+end
+
+
+strong section "Recent Products" do
+    table_for Product.order("created_at desc").limit(4) do
+      column :title do |title|
+        link_to title.title, admin_product_path(title), :onclick=>"window.open(this.href,'view order info','scrollbars=yes,height=600, width=600');return false;" 
+      end
       column :created_at
     end
 end
 
 
-section "Users Registered" do
-table_for User.order("created_at desc") do
+strong section "Recent Users Registered" do
+table_for User.order("created_at desc").limit(3) do
     column :name
     column :created_at
     end
 end
 
-section "Recent Orders" do
-    table_for Order.order("created_at desc").limit(5) do
-        column :name
-        column :address
-        column :email
-        column :pay_type
-    end
-end
 
 
 
 
-=begin
-column do
-   panel "Total number of users" do
-    table_for User.order('created_at desc') do
-    column :user
-    users do |user|
-     user.users.count
-    end
-    end
-  end
-end
 
-=end
+
+# column do
+#    panel "Total number of users" do
+#     table_for User.order('created_at desc') do
+#     column :user
+#     users do |user|
+#      user.users.count
+#     end
+#     end
+#   end
+# end
+
+
 
 
 

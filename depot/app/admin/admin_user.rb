@@ -2,7 +2,7 @@ ActiveAdmin.register AdminUser do
   config.filters = false
   permit_params :email, :password, :password_confirmation
   config.clear_action_items!
-  actions :all, :except => [:destroy, :edit]
+  actions :all, :except => :destroy
   config.batch_actions = false
 
   index do

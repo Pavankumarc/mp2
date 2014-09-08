@@ -7,12 +7,17 @@
 <% cache ['entry', product] do %>
 <div class="entry">
 <%= image_tag(product.photo) %>
-<h3><%= product.title %></h3>
+
+
+<h3><%= link_to product.title, product_path(product_id = product.id) %></h3>
+
 <p><%= truncate(strip_tags(product.description), length: 80) %></p>
 <div class="price_line">
 <span class="price"><%= number_to_currency(product.price) %></span>
 <%if user_signed_in? %>
 <%= button_to t('.add_html'), line_items_path(product_id: product),remote: true %>
+<% else %>
+<%= button_to t('.add_html'), user_session_path %>
 <% end %>
 </div>
 </div>

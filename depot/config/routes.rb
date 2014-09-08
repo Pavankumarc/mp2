@@ -1,6 +1,7 @@
 Depot::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+ 
   devise_for :users
   #get 'admin' => 'admin#index'
   
@@ -9,7 +10,8 @@ Depot::Application.routes.draw do
   post 'login' => :create
   delete 'logout' => :destroy
   end
-
+ 
+  
 
   get 'admin/index'
   get 'sessions/new'
@@ -26,11 +28,17 @@ Depot::Application.routes.draw do
 
   scope '(:locale)' do
     resources :orders
-    resources :line_items
+    resources :line_items do
+        delete 'line_item/delete'
+
+    end
     resources :carts
     root 'store#index', as: 'store', via: :all
   end
 
+
+# Any other routes are handled here (as ActionDispatch prevents RoutingError from hitting ApplicationController::rescue_action).
+  #match "*path", :to => "application#routing_error", :via => :all
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

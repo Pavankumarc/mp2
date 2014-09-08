@@ -10,6 +10,7 @@ index do
     column :pay_type
     column :created_at
     actions
+   
   end
   filter :name
   filter :pay_type

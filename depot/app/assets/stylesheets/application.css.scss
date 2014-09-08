@@ -28,12 +28,14 @@ float: left;
 }
 
 #notice {
-color: #000 !important;
-border: 2px solid red;
+
+border: 2px solid green;
 padding: 1em;
 margin-bottom: 2em;
-background-color: #f0f0f0;
 font: bold smaller sans-serif;
+color: #4F8A10;
+background-color: #DFF2BF;
+background-image:url('success.png');
 }
 
 #columns {

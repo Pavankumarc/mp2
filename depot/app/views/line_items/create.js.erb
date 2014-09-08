@@ -1,6 +1,13 @@
 $('#notice').hide();
 
-if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
+if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000);
+
+$("button").click(function(){
+  $("#cart").remove();
+});
+
+
+ }
 
 $('#cart').html("<%= escape_javascript render(@cart) %>");
 
