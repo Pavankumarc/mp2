@@ -17,6 +17,8 @@ permit_params :list, :of, :attributes, :on, :model, :title, :description, :photo
     actions
   end
   
+filter :created_at
+
   form :html => { :enctype => "multipart/form-data" } do |f| 
     f.inputs "Product", :multipart => true do 
       f.input :title 

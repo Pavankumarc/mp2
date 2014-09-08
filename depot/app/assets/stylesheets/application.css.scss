@@ -72,14 +72,50 @@ ul {
 padding: 0;
 li {
 list-style: none;
-a {
-color: #bfb;
-font-size: small;
+
 }
 }
 }
 }
+
+
+
+
+#navigation{
+    margin:0;
+    padding:0;
+    font-family: Sans-Serif;
+
+    color: #ffffff;
+    height:34px;
+    list-style:none;
+    position: relative;
 }
+#navigation li a{
+    color:#000000;
+    display:block;
+    font-size:12px;
+    text-decoration:none;
+    font-weight:bold;
+
+
+      padding:10px 18px;
+    }
+    #navigation li a:hover{
+       color: #ffffff;
+       background-color: #b36521;
+    }
+    #navigation li a:active{
+       color: #ffffff;
+       background:#f1d74c;
+    }
+
+
+
+
+
+
+
 
 .depot_form {
 fieldset {
