@@ -40,8 +40,16 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
+
     respond_to do |format|
       if @order.save
+        # @line_item = LineItem.new
+
+        # @total = @line_item.totalprice
+
+        # puts @total
+        # puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        # @order.update_attribute("totalprice","#{@total}")
         #@order.user_id = current_user.id
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil

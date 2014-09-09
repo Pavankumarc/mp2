@@ -27,12 +27,15 @@ ActiveAdmin.register_page "Dashboard" do
 # end
 
 strong section "Recent Orders" do
-  table_for LineItem.order("created_at desc") do
+  table_for LineItem.order("created_at desc").limit(5) do
     column :order
     column :quantity
     column :product
   end
 end
+
+
+
 
 
 strong section "Recent Products" do

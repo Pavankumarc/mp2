@@ -4,10 +4,12 @@ class Product < ActiveRecord::Base
 	before_destroy :ensure_not_referenced_by_any_line_item  #hook method
 
 	has_attached_file :photo
+
+	validates :title, :description, :photo, presence: true
 	validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
-
-	#validates :title, :description, :image_url, presence: true
+    
+	
 	validates :price, numericality: {greater_than_or_equal_to: 0.01}
 	validates :title, uniqueness: true
 	#validates :image_url, allow_blank: true, format: {
